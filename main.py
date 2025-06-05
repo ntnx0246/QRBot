@@ -9,7 +9,6 @@ from discord.ext import commands
 # Load environment variables from .env file
 load_dotenv()
 
-# Get the token with a safer method
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 # Configure intents
