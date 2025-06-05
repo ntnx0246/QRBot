@@ -35,6 +35,11 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
+    # Ignore messages that invoke commands to avoid duplicate QR codes
+    if message.content.startswith(bot.command_prefix):
+        await bot.process_commands(message)
+        return
+
     # Check if message contains a URL
     urls = re.findall(URL_PATTERN, message.content)
     if urls:
